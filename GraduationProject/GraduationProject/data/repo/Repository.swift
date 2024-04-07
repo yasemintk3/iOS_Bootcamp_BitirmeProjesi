@@ -13,6 +13,11 @@ class Repository {
     
     var menuList = BehaviorSubject<[Menu]>(value: [Menu]())
     
+    func search(searchText:String) {
+        
+        //later
+    }
+    
     func uploadMenu() {
         
         AF.request("http://kasimadalan.pe.hu/yemekler/tumYemekleriGetir.php", method: .get).response { response in

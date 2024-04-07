@@ -13,7 +13,6 @@ class MenuCell: UICollectionViewCell {
     @IBOutlet weak var labelName: UILabel!
     @IBOutlet weak var labelPrice: UILabel!
     
-    
     @IBAction func buttonAddToCart(_ sender: Any) {
         
     }

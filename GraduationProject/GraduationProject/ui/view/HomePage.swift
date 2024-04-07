@@ -7,6 +7,7 @@
 
 import UIKit
 import Kingfisher
+import SwiftUI
 
 class HomePage: UIViewController {
     
@@ -32,6 +33,10 @@ class HomePage: UIViewController {
         appearance()
         barButtonItem()
         collectionViewDesign()
+        
+        
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,6 +44,8 @@ class HomePage: UIViewController {
     }
     
     // MARK: Funcs
+    
+
     
     func appearance() {
         
@@ -98,6 +105,14 @@ class HomePage: UIViewController {
 
 // MARK: Extensions
 
+extension HomePage: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    
+        viewModel.search(searchText: searchText)
+    }
+}
+
 extension HomePage: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -124,5 +139,24 @@ extension HomePage: UICollectionViewDelegate, UICollectionViewDataSource {
         cell.layer.cornerRadius = 10.0
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let menu = menuList[indexPath.row]
+        
+        performSegue(withIdentifier: "goToDetailPage", sender: menu)
+        
+        collectionView.deselectItem(at: indexPath, animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "goToDetailPage" {
+            if let itemOnTheMenu = sender as? Menu {
+                let detailPage = segue.destination as! DetailPage
+                detailPage.itemOnTheMenu = itemOnTheMenu
+            }
+        }
     }
 }

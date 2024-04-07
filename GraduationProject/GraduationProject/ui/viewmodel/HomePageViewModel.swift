@@ -21,4 +21,8 @@ class HomePageViewModel {
     func uploadMenu() {
         menuRepo.uploadMenu()
     }
+    
+    func search(searchText:String) {
+        menuRepo.search(searchText: searchText)
+    }
 }
