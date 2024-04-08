@@ -11,6 +11,7 @@ import Kingfisher
 class DetailPage: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var labelProductName: UILabel!
     @IBOutlet weak var labelProductPrice: UILabel!
     @IBOutlet weak var labelCount: UILabel!
@@ -38,13 +39,17 @@ class DetailPage: UIViewController {
             labelProductPrice.text = "\(item.yemek_fiyat!) ₺"
         }
         
+        for view in stackView.arrangedSubviews {
+            view.widthAnchor.constraint(equalToConstant: 35).isActive = true
+        }
+        
         barBackButton()
 
     }
     
     func barBackButton() {
         
-        navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "Home", style: .plain, target: nil, action: nil)
+        navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
         navigationController?.navigationBar.tintColor = UIColor(named: "color2")
         

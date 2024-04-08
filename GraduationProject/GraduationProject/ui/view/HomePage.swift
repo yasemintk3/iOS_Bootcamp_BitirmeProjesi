@@ -31,12 +31,7 @@ class HomePage: UIViewController {
         })
     
         appearance()
-        barButtonItem()
         collectionViewDesign()
-        
-        
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,8 +39,6 @@ class HomePage: UIViewController {
     }
     
     // MARK: Funcs
-    
-
     
     func appearance() {
         
@@ -58,33 +51,6 @@ class HomePage: UIViewController {
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.compactAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
-    }
-    
-    func barButtonItem() {
-        
-        if let image = UIImage(named: "menu"){
-            let originalImage = image.withRenderingMode(.alwaysOriginal)
-            
-            let button = UIButton(type: .custom)
-            button.setImage(originalImage, for: .normal)
-            button.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
-            
-            let barButtonItem = UIBarButtonItem(customView: button)
-    
-            navigationItem.leftBarButtonItem = barButtonItem
-        }
-        
-        if let image = UIImage(named: "cart"){
-            let originalImage = image.withRenderingMode(.alwaysOriginal)
-            
-            let button = UIButton(type: .custom)
-            button.setImage(originalImage, for: .normal)
-            button.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
-            
-            let barButtonItem = UIBarButtonItem(customView: button)
-    
-            navigationItem.rightBarButtonItem = barButtonItem
-        }
     }
     
     func collectionViewDesign() {
@@ -134,9 +100,14 @@ extension HomePage: UICollectionViewDelegate, UICollectionViewDataSource {
         cell.labelName.text = menu.yemek_adi
         cell.labelPrice.text = "\(menu.yemek_fiyat!) ₺"
         
-        cell.layer.borderColor = UIColor.darkGray.cgColor
-        cell.layer.borderWidth = 1
-        cell.layer.cornerRadius = 10.0
+        cell.layer.cornerRadius = 10
+        
+        // Sol üst ve sağ alt köşeleri keskin bırak
+        cell.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMaxYCorner]
+        
+        //cell.layer.borderColor = UIColor.darkGray.cgColor
+        //cell.layer.borderWidth = 1
+        //cell.layer.cornerRadius = 10.0
         
         return cell
     }
