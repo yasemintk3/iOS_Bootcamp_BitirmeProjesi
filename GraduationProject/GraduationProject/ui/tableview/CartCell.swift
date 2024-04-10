@@ -8,10 +8,28 @@
 import UIKit
 
 class CartCell: UITableViewCell {
-
+    
+    @IBOutlet weak var imageViewOrder: UIImageView!
+    @IBOutlet weak var labelName: UILabel!
+    @IBOutlet weak var labelPrice: UILabel!
+    @IBOutlet weak var labelCount: UILabel!
+    @IBOutlet weak var stackView: UIStackView!
+    
+    var viewModel = CartPageViewModel()
+    
+    var count = 0 {
+        didSet {
+            labelCount.text = "\(count)"
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        for view in stackView.arrangedSubviews {
+            view.widthAnchor.constraint(equalToConstant: 35).isActive = true
+        }
+    
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -19,5 +37,13 @@ class CartCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
+    
+    @IBAction func buttonDecrease(_ sender: Any) {
+        count = max(0, count - 1)
+    }
+    
+    @IBAction func buttonIncrease(_ sender: Any) {
+        count += 1
+    }
 }

@@ -16,6 +16,7 @@ class HomePage: UIViewController {
     
     var menuList = [Menu]()
     var viewModel = HomePageViewModel()
+    var viewModelCartPage = CartPageViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -109,6 +110,9 @@ extension HomePage: UICollectionViewDelegate, UICollectionViewDataSource {
         //cell.layer.borderWidth = 1
         //cell.layer.cornerRadius = 10.0
         
+        cell.menuCellProtocol = self
+        cell.indexPath = indexPath
+        
         return cell
     }
     
@@ -131,3 +135,21 @@ extension HomePage: UICollectionViewDelegate, UICollectionViewDataSource {
         }
     }
 }
+
+extension HomePage: MenuCellProtocol {
+    
+    func clickedAddToCart(indexPath: IndexPath) {
+        
+        let menu = menuList[indexPath.row]
+        
+        viewModelCartPage.addToCart(yemek_adi: menu.yemek_adi!,
+                                    yemek_resim_adi: menu.yemek_resim_adi!,
+                                    yemek_fiyat: Int(menu.yemek_fiyat!)!,
+                                    yemek_siparis_adet: 0,
+                                    kullanici_adi: "ytok")
+        
+        let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "CartPage") as! CartPage
+        self.navigationController!.pushViewController(secondViewController, animated: true)
+    }
+}
+

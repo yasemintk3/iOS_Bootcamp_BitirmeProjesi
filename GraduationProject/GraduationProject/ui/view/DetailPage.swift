@@ -50,7 +50,6 @@ class DetailPage: UIViewController {
     func barBackButton() {
         
         navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        
         navigationController?.navigationBar.tintColor = UIColor(named: "color2")
         
     }
@@ -66,5 +65,4 @@ class DetailPage: UIViewController {
     
     @IBAction func buttonAddToCart(_ sender: Any) {
     }
-    
 }
