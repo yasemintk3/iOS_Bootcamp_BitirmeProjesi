@@ -29,4 +29,8 @@ class CartPageViewModel {
     func listCart(kullanici_adi:String) {
         cartRepo.listCart(kullanici_adi: kullanici_adi)
     }
+    
+    func deleteOrder(sepet_yemek_id:Int, kullanici_adi:String) {
+        cartRepo.deleteOrder(sepet_yemek_id: sepet_yemek_id, kullanici_adi: kullanici_adi)
+    }
 }

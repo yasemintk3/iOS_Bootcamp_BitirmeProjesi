@@ -28,9 +28,8 @@ class CartPage: UIViewController {
             }
         })
         
-
-        
         barBackButton()
+       
     }
     
     func barBackButton() {
@@ -62,7 +61,32 @@ extension CartPage: UITableViewDelegate, UITableViewDataSource {
         cell.labelName.text = cart.yemek_adi
         cell.labelPrice.text = "\(cart.yemek_fiyat!) ₺"
         cell.labelCount.text = "\(cart.yemek_siparis_adet!)"
+        
+        cell.layer.cornerRadius = 10
+        cell.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMaxYCorner]
 
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let deletion = UIContextualAction(style: .destructive, title: "Delete") { contextualAction, view, bool in
+            
+            let cart = self.cartList[indexPath.row]
+            
+            let alert = UIAlertController(title: "Deletion", message: "Should \(cart.yemek_adi!) be deleted?", preferredStyle: .alert)
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+            alert.addAction(cancelAction)
+            
+            let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { action in
+                self.viewModel.deleteOrder(sepet_yemek_id: Int(cart.sepet_yemek_id!)!, kullanici_adi: cart.kullanici_adi!)
+            }
+            alert.addAction(deleteAction)
+            
+            self.present(alert, animated: true)
+        }
+        
+        return UISwipeActionsConfiguration(actions: [deletion])
     }
 }

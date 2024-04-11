@@ -27,7 +27,7 @@ class CartCell: UITableViewCell {
         super.awakeFromNib()
         
         for view in stackView.arrangedSubviews {
-            view.widthAnchor.constraint(equalToConstant: 35).isActive = true
+            view.widthAnchor.constraint(equalToConstant: 45).isActive = true
         }
     
     }

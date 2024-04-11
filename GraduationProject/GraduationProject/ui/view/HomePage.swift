@@ -102,8 +102,6 @@ extension HomePage: UICollectionViewDelegate, UICollectionViewDataSource {
         cell.labelPrice.text = "\(menu.yemek_fiyat!) ₺"
         
         cell.layer.cornerRadius = 10
-        
-        // Sol üst ve sağ alt köşeleri keskin bırak
         cell.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMaxYCorner]
         
         //cell.layer.borderColor = UIColor.darkGray.cgColor
@@ -148,8 +146,8 @@ extension HomePage: MenuCellProtocol {
                                     yemek_siparis_adet: 0,
                                     kullanici_adi: "ytok")
         
-        let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "CartPage") as! CartPage
-        self.navigationController!.pushViewController(secondViewController, animated: true)
+        let cartPage = self.storyboard?.instantiateViewController(withIdentifier: "CartPage") as! CartPage
+        self.navigationController!.pushViewController(cartPage, animated: true)
     }
 }
 
