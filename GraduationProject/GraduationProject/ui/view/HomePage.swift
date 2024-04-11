@@ -31,8 +31,10 @@ class HomePage: UIViewController {
             }
         })
     
-        appearance()
+        navigationControllerAppearance()
         collectionViewDesign()
+        tabBarAppearance()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,17 +43,19 @@ class HomePage: UIViewController {
     
     // MARK: Funcs
     
-    func appearance() {
+    func navigationControllerAppearance() {
         
         let appearance = UINavigationBarAppearance()
         
         appearance.backgroundColor = UIColor(named: "color")
         
-        navigationController?.navigationBar.barStyle = .black
+        //navigationController?.navigationBar.barStyle = .black
         
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.compactAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        
+        navigationItem.rightBarButtonItem?.tintColor = .systemGray5
     }
     
     func collectionViewDesign() {
@@ -67,6 +71,27 @@ class HomePage: UIViewController {
         tasarim.itemSize = CGSize(width: itemGenislik, height: itemGenislik * 1.2)
         
         collectionViewMenu.collectionViewLayout = tasarim
+    }
+    
+    func tabBarAppearance() {
+        
+        let appearance = UITabBarAppearance()
+        
+        tabBarColorDesign(itemAppearance: appearance.stackedLayoutAppearance)
+        tabBarColorDesign(itemAppearance: appearance.inlineLayoutAppearance)
+        tabBarColorDesign(itemAppearance: appearance.compactInlineLayoutAppearance)
+        
+        tabBarController?.tabBar.standardAppearance = appearance
+        tabBarController?.tabBar.scrollEdgeAppearance = appearance
+    }
+    
+    func tabBarColorDesign(itemAppearance:UITabBarItemAppearance) {
+    
+        itemAppearance.selected.iconColor = UIColor(named: "color")
+        itemAppearance.selected.badgeBackgroundColor = UIColor.white
+        
+        itemAppearance.normal.iconColor = UIColor.lightGray
+        itemAppearance.normal.badgeBackgroundColor = UIColor.black
     }
 }
 
@@ -104,10 +129,6 @@ extension HomePage: UICollectionViewDelegate, UICollectionViewDataSource {
         cell.layer.cornerRadius = 10
         cell.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMaxYCorner]
         
-        //cell.layer.borderColor = UIColor.darkGray.cgColor
-        //cell.layer.borderWidth = 1
-        //cell.layer.cornerRadius = 10.0
-        
         cell.menuCellProtocol = self
         cell.indexPath = indexPath
         
@@ -116,21 +137,12 @@ extension HomePage: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let menu = menuList[indexPath.row]
         
-        performSegue(withIdentifier: "goToDetailPage", sender: menu)
+        let detailPage = self.storyboard?.instantiateViewController(withIdentifier: "DetailPage") as! DetailPage
+        detailPage.hidesBottomBarWhenPushed = true
+        self.navigationController!.pushViewController(detailPage, animated: true)
         
-        collectionView.deselectItem(at: indexPath, animated: true)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == "goToDetailPage" {
-            if let itemOnTheMenu = sender as? Menu {
-                let detailPage = segue.destination as! DetailPage
-                detailPage.itemOnTheMenu = itemOnTheMenu
-            }
-        }
+        detailPage.itemOnTheMenu = menuList[indexPath.row]
     }
 }
 
@@ -147,7 +159,8 @@ extension HomePage: MenuCellProtocol {
                                     kullanici_adi: "ytok")
         
         let cartPage = self.storyboard?.instantiateViewController(withIdentifier: "CartPage") as! CartPage
-        self.navigationController!.pushViewController(cartPage, animated: true)
+        cartPage.hidesBottomBarWhenPushed = true
+        //self.navigationController!.pushViewController(cartPage, animated: true)
     }
 }
 

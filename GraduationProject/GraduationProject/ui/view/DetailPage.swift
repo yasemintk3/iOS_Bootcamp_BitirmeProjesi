@@ -45,6 +45,7 @@ class DetailPage: UIViewController {
         
         barBackButton()
 
+        
     }
     
     func barBackButton() {
