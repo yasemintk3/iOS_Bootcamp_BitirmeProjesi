@@ -45,8 +45,18 @@ class DetailPage: UIViewController {
         
         navigationControllerAppearance()
     }
-    
+
     // MARK: Funcs
+    
+    func showToast(orderName:String) {
+
+        let alertController = UIAlertController(title: nil, message: "\(orderName) added to cart", preferredStyle: .alert)
+        self.present(alertController, animated: true, completion: nil)
+
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+            alertController.dismiss(animated: true, completion: nil)
+        }
+    }
     
     func navigationControllerAppearance() {
         
@@ -72,6 +82,8 @@ class DetailPage: UIViewController {
                                 yemek_fiyat: Int(item.yemek_fiyat!)!,
                                 yemek_siparis_adet: Int(count),
                                 kullanici_adi: "ytok")
+            
+            showToast(orderName: item.yemek_adi!)
         }
     }
 }

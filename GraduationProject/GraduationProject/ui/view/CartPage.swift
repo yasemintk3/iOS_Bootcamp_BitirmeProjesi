@@ -28,13 +28,25 @@ class CartPage: UIViewController {
             }
         })
         
+        tableView.separatorStyle = .none
+        
         navigationControllerAppearance()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tabBarController?.tabBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        tabBarController?.tabBar.isHidden = false
     }
     
     func navigationControllerAppearance() {
         
         navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationController?.navigationBar.tintColor = .white
+        
+        navigationItem.rightBarButtonItem?.tintColor = .white
     }
 }
 
@@ -62,8 +74,8 @@ extension CartPage: UITableViewDelegate, UITableViewDataSource {
         cell.labelPrice.text = "\(cart.yemek_fiyat!) ₺"
         cell.labelCount.text = "\(cart.yemek_siparis_adet!)"
         
-        cell.layer.cornerRadius = 10
-        cell.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMaxYCorner]
+        cell.layer.borderWidth = 3
+        cell.layer.borderColor = UIColor.systemGray6.cgColor
 
         return cell
     }

@@ -167,14 +167,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="133" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="65I-s2-qjT">
-                                <rect key="frame" x="4" y="88" width="406" height="575"/>
+                                <rect key="frame" x="8" y="88" width="398" height="575"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cartCell" id="BoG-sN-fL6" customClass="CartCell" customModule="GraduationProject" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="406" height="133"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="398" height="133"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BoG-sN-fL6" id="c58-5f-85F">
-                                            <rect key="frame" x="0.0" y="0.0" width="406" height="133"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="398" height="133"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eVg-KY-gx3">
@@ -196,7 +196,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yUr-E2-ral">
-                                                    <rect key="frame" x="293" y="71" width="77" height="34"/>
+                                                    <rect key="frame" x="285" y="71" width="77" height="34"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mmd-tR-HOI">
                                                             <rect key="frame" x="0.0" y="0.0" width="30" height="34"/>
@@ -248,7 +248,7 @@
                                             <outlet property="labelCount" destination="fIb-Fg-1ll" id="O64-RZ-ZbH"/>
                                             <outlet property="labelName" destination="PFt-3S-r3u" id="as7-DH-1UU"/>
                                             <outlet property="labelPrice" destination="cH7-aZ-fMq" id="m1e-dM-rRk"/>
-                                            <outlet property="stackView" destination="yUr-E2-ral" id="JDb-NE-4i4"/>
+                                            <outlet property="stackView" destination="yUr-E2-ral" id="DLC-ZL-xVV"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -284,12 +284,12 @@
                         <viewLayoutGuide key="safeArea" id="Kd5-JO-GQT"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
-                            <constraint firstItem="Kd5-JO-GQT" firstAttribute="trailing" secondItem="65I-s2-qjT" secondAttribute="trailing" constant="4" id="69W-ef-fOw"/>
+                            <constraint firstItem="Kd5-JO-GQT" firstAttribute="trailing" secondItem="65I-s2-qjT" secondAttribute="trailing" constant="8" id="69W-ef-fOw"/>
                             <constraint firstItem="65I-s2-qjT" firstAttribute="centerX" secondItem="lCG-0I-OyJ" secondAttribute="centerX" id="FuF-8m-MTe"/>
                             <constraint firstItem="65I-s2-qjT" firstAttribute="top" secondItem="Kd5-JO-GQT" secondAttribute="top" id="Kre-aM-4tl"/>
                             <constraint firstItem="Kd5-JO-GQT" firstAttribute="trailing" secondItem="TlX-Pl-uqQ" secondAttribute="trailing" constant="100" id="SBx-oN-BRm"/>
                             <constraint firstItem="VvC-GW-FcK" firstAttribute="leading" secondItem="Kd5-JO-GQT" secondAttribute="leading" constant="100" id="Uef-M6-pkR"/>
-                            <constraint firstItem="65I-s2-qjT" firstAttribute="leading" secondItem="Kd5-JO-GQT" secondAttribute="leading" constant="4" id="VFT-ps-eCW"/>
+                            <constraint firstItem="65I-s2-qjT" firstAttribute="leading" secondItem="Kd5-JO-GQT" secondAttribute="leading" constant="8" id="VFT-ps-eCW"/>
                             <constraint firstItem="Kd5-JO-GQT" firstAttribute="bottom" secondItem="sc8-qP-cic" secondAttribute="bottom" constant="20" id="Xk4-3B-fVO"/>
                             <constraint firstItem="TlX-Pl-uqQ" firstAttribute="top" secondItem="65I-s2-qjT" secondAttribute="bottom" constant="23" id="baN-pI-Vdp"/>
                             <constraint firstItem="VvC-GW-FcK" firstAttribute="top" secondItem="65I-s2-qjT" secondAttribute="bottom" constant="25" id="g7S-nf-39V"/>
@@ -298,7 +298,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="mSa-3i-U1g"/>
-                    <navigationItem key="navigationItem" title="Cart" id="1xS-4m-A4d"/>
+                    <navigationItem key="navigationItem" title="Cart" id="1xS-4m-A4d">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="trash" catalog="system" id="d3z-7f-SFt"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="labelPrice" destination="TlX-Pl-uqQ" id="pgb-kD-PM0"/>
                         <outlet property="tableView" destination="65I-s2-qjT" id="0GP-WY-qOa"/>
@@ -436,7 +438,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Z3r-Ka-Dcw">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="cart" catalog="system" id="9if-jf-Of0"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="cart" catalog="system" id="9if-jf-Of0">
+                            <connections>
+                                <segue destination="XRL-Kd-ZKY" kind="show" id="BwW-dO-1cJ"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="imageView" destination="yON-vA-SSU" id="87L-aT-Qvg"/>
@@ -491,12 +497,13 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Ddk-oY-ETW"/>
+        <segue reference="BwW-dO-1cJ"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="cart" catalog="system" width="128" height="102"/>
         <image name="home" width="24" height="24"/>
         <image name="square.split.2x2" catalog="system" width="128" height="114"/>
+        <image name="trash" catalog="system" width="121" height="128"/>
         <image name="user" width="24" height="24"/>
         <namedColor name="color">
             <color red="0.9570000171661377" green="0.31799998879432678" blue="0.11800000071525574" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

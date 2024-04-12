@@ -30,7 +30,7 @@ class HomePage: UIViewController {
                 self.collectionViewMenu.reloadData()
             }
         })
-    
+        
         navigationControllerAppearance()
         collectionViewDesign()
         tabBarAppearance()
@@ -42,6 +42,16 @@ class HomePage: UIViewController {
     
     // MARK: Funcs
     
+    func showToast(orderName:String) {
+
+        let alertController = UIAlertController(title: nil, message: "\(orderName) added to cart", preferredStyle: .alert)
+        self.present(alertController, animated: true, completion: nil)
+
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+            alertController.dismiss(animated: true, completion: nil)
+        }
+    }
+
     func navigationControllerAppearance() {
         
         let appearance = UINavigationBarAppearance()
@@ -155,9 +165,6 @@ extension HomePage: MenuCellProtocol {
                                     yemek_siparis_adet: 0,
                                     kullanici_adi: "ytok")
         
-        let cartPage = self.storyboard?.instantiateViewController(withIdentifier: "CartPage") as! CartPage
-        cartPage.hidesBottomBarWhenPushed = true
-        //self.navigationController!.pushViewController(cartPage, animated: true)
+        showToast(orderName: menu.yemek_adi!)
     }
 }
-

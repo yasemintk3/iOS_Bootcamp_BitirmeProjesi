@@ -12,8 +12,8 @@ class CartCell: UITableViewCell {
     @IBOutlet weak var imageViewOrder: UIImageView!
     @IBOutlet weak var labelName: UILabel!
     @IBOutlet weak var labelPrice: UILabel!
-    @IBOutlet weak var labelCount: UILabel!
     @IBOutlet weak var stackView: UIStackView!
+    @IBOutlet weak var labelCount: UILabel!
     
     var count = 0 {
         didSet {
