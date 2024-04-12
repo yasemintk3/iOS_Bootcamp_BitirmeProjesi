@@ -43,16 +43,17 @@ class DetailPage: UIViewController {
             view.widthAnchor.constraint(equalToConstant: 35).isActive = true
         }
         
-        barBackButton()
-
-        
+        navigationControllerAppearance()
     }
     
-    func barBackButton() {
+    // MARK: Funcs
+    
+    func navigationControllerAppearance() {
         
         navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        navigationController?.navigationBar.tintColor = UIColor(named: "color2")
+        navigationController?.navigationBar.tintColor = .white
         
+        navigationItem.rightBarButtonItem?.tintColor = .white
     }
 
     @IBAction func buttonDecrease(_ sender: Any) {
@@ -63,7 +64,14 @@ class DetailPage: UIViewController {
         count += 1
     }
     
-    
     @IBAction func buttonAddToCart(_ sender: Any) {
+        
+        if let item = itemOnTheMenu {
+            viewModel.addToCart(yemek_adi: item.yemek_adi!,
+                                yemek_resim_adi: item.yemek_resim_adi!,
+                                yemek_fiyat: Int(item.yemek_fiyat!)!,
+                                yemek_siparis_adet: Int(count),
+                                kullanici_adi: "ytok")
+        }
     }
 }

@@ -34,7 +34,6 @@ class HomePage: UIViewController {
         navigationControllerAppearance()
         collectionViewDesign()
         tabBarAppearance()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,13 +48,12 @@ class HomePage: UIViewController {
         
         appearance.backgroundColor = UIColor(named: "color")
         
-        //navigationController?.navigationBar.barStyle = .black
-        
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.compactAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
         
         navigationItem.rightBarButtonItem?.tintColor = .systemGray5
+        navigationItem.leftBarButtonItem?.tintColor = .systemGray5
     }
     
     func collectionViewDesign() {
@@ -136,7 +134,6 @@ extension HomePage: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
         
         let detailPage = self.storyboard?.instantiateViewController(withIdentifier: "DetailPage") as! DetailPage
         detailPage.hidesBottomBarWhenPushed = true

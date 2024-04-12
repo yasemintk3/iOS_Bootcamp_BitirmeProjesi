@@ -28,17 +28,17 @@ class CartPage: UIViewController {
             }
         })
         
-        barBackButton()
-       
+        navigationControllerAppearance()
     }
     
-    func barBackButton() {
+    func navigationControllerAppearance() {
         
         navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        navigationController?.navigationBar.tintColor = UIColor(named: "color2")
-        
+        navigationController?.navigationBar.tintColor = .white
     }
 }
+
+// MARK: Extensions
 
 extension CartPage: UITableViewDelegate, UITableViewDataSource {
     
