@@ -156,7 +156,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7zo-Z6-ANr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3639" y="806"/>
+            <point key="canvasLocation" x="1865" y="826"/>
         </scene>
         <!--Cart-->
         <scene sceneID="chD-cN-1F5">
@@ -308,7 +308,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vsc-uL-dW6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4458" y="471"/>
+            <point key="canvasLocation" x="4064" y="826"/>
         </scene>
         <!--Detail Page-->
         <scene sceneID="MHU-3g-X7H">
@@ -454,7 +454,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e3L-Nj-Lri" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4458" y="-257"/>
+            <point key="canvasLocation" x="4461" y="84"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7aG-pb-c91">

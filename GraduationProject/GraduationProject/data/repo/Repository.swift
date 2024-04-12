@@ -15,8 +15,7 @@ class Repository {
     var cartList = BehaviorSubject<[Cart]>(value: [Cart]())
     
     func search(searchText:String) {
-        
-        //later
+        //no webservice
     }
     
     func uploadMenu() {
@@ -71,7 +70,7 @@ class Repository {
                         self.cartList.onNext(list)
                     }
                 } catch {
-                    print(error.localizedDescription)
+                    self.cartList.onNext([])
                 }
             }
         }
