@@ -299,7 +299,11 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="mSa-3i-U1g"/>
                     <navigationItem key="navigationItem" title="Cart" id="1xS-4m-A4d">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="trash" catalog="system" id="d3z-7f-SFt"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="trash" catalog="system" id="d3z-7f-SFt">
+                            <connections>
+                                <action selector="buttonDeleteAll:" destination="XRL-Kd-ZKY" id="tsa-JY-6pg"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="labelPrice" destination="TlX-Pl-uqQ" id="pgb-kD-PM0"/>

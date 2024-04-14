@@ -162,7 +162,7 @@ extension HomePage: MenuCellProtocol {
         viewModelCartPage.addToCart(yemek_adi: menu.yemek_adi!,
                                     yemek_resim_adi: menu.yemek_resim_adi!,
                                     yemek_fiyat: Int(menu.yemek_fiyat!)!,
-                                    yemek_siparis_adet: 0,
+                                    yemek_siparis_adet: 1,
                                     kullanici_adi: "ytok")
         
         showToast(orderName: menu.yemek_adi!)

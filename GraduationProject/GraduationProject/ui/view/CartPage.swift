@@ -14,6 +14,7 @@ class CartPage: UIViewController {
     
     var cartList = [Cart]()
     var viewModel = CartPageViewModel()
+    var orderIds: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +49,17 @@ class CartPage: UIViewController {
         
         navigationItem.rightBarButtonItem?.tintColor = .white
     }
+    
+    func deleteAllOrders() {
+        for orderId in orderIds {
+            viewModel.deleteOrder(sepet_yemek_id: Int(orderId)!, kullanici_adi: "ytok")
+        }
+    }
+
+    @IBAction func buttonDeleteAll(_ sender: Any) {
+        deleteAllOrders()
+        tableView.reloadData()
+    }
 }
 
 // MARK: Extensions
@@ -74,9 +86,11 @@ extension CartPage: UITableViewDelegate, UITableViewDataSource {
         cell.labelPrice.text = "\(cart.yemek_fiyat!) ₺"
         cell.labelCount.text = "\(cart.yemek_siparis_adet!)"
         
+        orderIds.append(cart.sepet_yemek_id!)
+        
         cell.layer.borderWidth = 3
         cell.layer.borderColor = UIColor.systemGray6.cgColor
-
+        
         return cell
     }
     
