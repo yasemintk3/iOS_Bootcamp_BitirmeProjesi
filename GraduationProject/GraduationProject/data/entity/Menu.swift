@@ -8,15 +8,10 @@
 import Foundation
 
 class Menu: Codable {
-
     var yemek_id:String?
     var yemek_adi:String?
     var yemek_resim_adi:String?
     var yemek_fiyat:String?
-    
-    init() {
-        
-    }
     
     init(yemek_id: String, yemek_adi: String, yemek_resim_adi: String, yemek_fiyat: String) {
         

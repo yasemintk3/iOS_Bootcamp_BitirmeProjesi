@@ -47,7 +47,7 @@ class HomePage: UIViewController {
         let alertController = UIAlertController(title: nil, message: "\(orderName) added to cart", preferredStyle: .alert)
         self.present(alertController, animated: true, completion: nil)
 
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.75) {
             alertController.dismiss(animated: true, completion: nil)
         }
     }

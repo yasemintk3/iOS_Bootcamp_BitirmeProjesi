@@ -44,21 +44,25 @@ class CartPage: UIViewController {
     
     func navigationControllerAppearance() {
         
-        navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        navigationController?.navigationBar.tintColor = .white
+        navigationItem.hidesBackButton = true
         
+        navigationItem.leftBarButtonItem?.tintColor = .white
         navigationItem.rightBarButtonItem?.tintColor = .white
     }
     
     func deleteAllOrders() {
         for orderId in orderIds {
             viewModel.deleteOrder(sepet_yemek_id: Int(orderId)!, kullanici_adi: "ytok")
+            tableView.reloadData()
         }
     }
-
+    
+    @IBAction func buttonBackHomePage(_ sender: Any) {
+        navigationController?.popToRootViewController(animated: true)
+    }
+    
     @IBAction func buttonDeleteAll(_ sender: Any) {
         deleteAllOrders()
-        tableView.reloadData()
     }
 }
 
