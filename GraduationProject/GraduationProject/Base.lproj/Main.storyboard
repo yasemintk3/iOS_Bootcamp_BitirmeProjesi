@@ -196,10 +196,10 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yUr-E2-ral">
-                                                    <rect key="frame" x="285" y="71" width="77" height="34"/>
+                                                    <rect key="frame" x="274" y="71" width="88" height="32"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mmd-tR-HOI">
-                                                            <rect key="frame" x="0.0" y="0.0" width="30" height="34"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="30" height="32"/>
                                                             <color key="tintColor" name="color"/>
                                                             <state key="normal" title="Button"/>
                                                             <buttonConfiguration key="configuration" style="plain" title="-">
@@ -209,14 +209,18 @@
                                                                 <action selector="buttonDecrease:" destination="BoG-sN-fL6" eventType="touchUpInside" id="Nit-Wo-p04"/>
                                                             </connections>
                                                         </button>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fIb-Fg-1ll">
-                                                            <rect key="frame" x="30" y="0.0" width="13" height="34"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fIb-Fg-1ll">
+                                                            <rect key="frame" x="30" y="0.0" width="24" height="32"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="32" id="Hvf-Zc-l5k"/>
+                                                                <constraint firstAttribute="width" constant="24" id="ykk-89-s3A"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IBA-2J-VcL">
-                                                            <rect key="frame" x="43" y="0.0" width="34" height="34"/>
+                                                            <rect key="frame" x="54" y="0.0" width="34" height="32"/>
                                                             <color key="tintColor" name="color"/>
                                                             <state key="normal" title="Button"/>
                                                             <buttonConfiguration key="configuration" style="plain" title="+">
@@ -238,8 +242,8 @@
                                                 <constraint firstItem="cH7-aZ-fMq" firstAttribute="top" secondItem="PFt-3S-r3u" secondAttribute="bottom" constant="20" id="bRr-BW-QJL"/>
                                                 <constraint firstItem="cH7-aZ-fMq" firstAttribute="leading" secondItem="eVg-KY-gx3" secondAttribute="trailing" constant="16" id="f5U-qt-nQx"/>
                                                 <constraint firstItem="eVg-KY-gx3" firstAttribute="leading" secondItem="c58-5f-85F" secondAttribute="leading" constant="4" id="hTb-Wh-eoy"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="yUr-E2-ral" secondAttribute="trailing" constant="16" id="i95-XD-foJ"/>
                                                 <constraint firstItem="PFt-3S-r3u" firstAttribute="top" secondItem="c58-5f-85F" secondAttribute="topMargin" constant="16" id="rsm-30-IJy"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="yUr-E2-ral" secondAttribute="trailing" constant="16" id="vMF-v0-gKj"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -248,7 +252,6 @@
                                             <outlet property="labelCount" destination="fIb-Fg-1ll" id="O64-RZ-ZbH"/>
                                             <outlet property="labelName" destination="PFt-3S-r3u" id="as7-DH-1UU"/>
                                             <outlet property="labelPrice" destination="cH7-aZ-fMq" id="m1e-dM-rRk"/>
-                                            <outlet property="stackView" destination="yUr-E2-ral" id="DLC-ZL-xVV"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

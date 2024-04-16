@@ -12,34 +12,37 @@ class CartCell: UITableViewCell {
     @IBOutlet weak var imageViewOrder: UIImageView!
     @IBOutlet weak var labelName: UILabel!
     @IBOutlet weak var labelPrice: UILabel!
-    @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var labelCount: UILabel!
     
-    var count = 0 {
-        didSet {
-            labelCount.text = "\(count)"
-        }
-    }
+    var count = 0
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        for view in stackView.arrangedSubviews {
-            view.widthAnchor.constraint(equalToConstant: 35).isActive = true
-        }
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
+    }
+    
+    func updateLabel() {
+        labelCount.text = "\(count)"
     }
     
     @IBAction func buttonDecrease(_ sender: Any) {
-        count = max(0, count - 1)
+        count = Int(labelCount.text!)!
+        
+        if count > 1 {
+            count -= 1
+            updateLabel()
+        }
     }
     
     @IBAction func buttonIncrease(_ sender: Any) {
+        count = Int(labelCount.text!)!
+        
         count += 1
+        updateLabel()
     }
 }

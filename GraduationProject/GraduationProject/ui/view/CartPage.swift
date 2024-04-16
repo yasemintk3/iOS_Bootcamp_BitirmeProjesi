@@ -15,6 +15,7 @@ class CartPage: UIViewController {
     var cartList = [Cart]()
     var viewModel = CartPageViewModel()
     var orderIds: [String] = []
+    var finalPrice = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,7 @@ class CartPage: UIViewController {
         _ = viewModel.cartList.subscribe(onNext: { list in
             self.cartList = list
             DispatchQueue.main.async {
+                self.updateTotalPrice()
                 self.tableView.reloadData()
             }
         })
@@ -55,6 +57,24 @@ class CartPage: UIViewController {
             viewModel.deleteOrder(sepet_yemek_id: Int(orderId)!, kullanici_adi: "ytok")
             tableView.reloadData()
         }
+    }
+    
+    func updateTotalPrice() {
+        calculateTotalPrice()
+        labelPrice.text = "\(finalPrice)"
+    }
+    
+    func calculateTotalPrice() {
+        var totalPrice = 0
+        
+        for cart in cartList {
+            let price = Int(cart.yemek_fiyat!)!
+            let count = Int(cart.yemek_siparis_adet!)!
+            
+            totalPrice += count * price
+        }
+        
+        finalPrice = totalPrice
     }
     
     @IBAction func buttonBackHomePage(_ sender: Any) {
