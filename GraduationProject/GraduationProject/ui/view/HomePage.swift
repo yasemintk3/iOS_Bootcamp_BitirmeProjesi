@@ -11,12 +11,16 @@ import SwiftUI
 
 class HomePage: UIViewController {
     
+    // MARK: - Properties
+    
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionViewMenu: UICollectionView!
     
     var menuList = [Menu]()
     var viewModel = HomePageViewModel()
     var viewModelCartPage = CartPageViewModel()
+    
+    // MARK: - Initialization
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +34,6 @@ class HomePage: UIViewController {
                 self.collectionViewMenu.reloadData()
             }
         })
-        
         navigationControllerAppearance()
         collectionViewDesign()
         tabBarAppearance()
@@ -40,7 +43,7 @@ class HomePage: UIViewController {
         viewModel.uploadMenu()
     }
     
-    // MARK: Funcs
+    // MARK: - Funcs
     
     func showToast(orderName:String) {
 
@@ -103,12 +106,11 @@ class HomePage: UIViewController {
     }
 }
 
-// MARK: Extensions
+// MARK: - Extensions
 
 extension HomePage: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-    
         viewModel.search(searchText: searchText)
     }
 }

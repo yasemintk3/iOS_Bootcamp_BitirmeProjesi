@@ -9,6 +9,8 @@ import UIKit
 
 class CartPage: UIViewController {
     
+    // MARK: - Properties
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var labelPrice: UILabel!
     
@@ -16,7 +18,8 @@ class CartPage: UIViewController {
     var viewModel = CartPageViewModel()
     var orderIds: [String] = []
     var finalPrice = 0
-    var cartCellCount:Int = 0
+    
+    // MARK: - Initialization
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,13 +34,12 @@ class CartPage: UIViewController {
                 self.tableView.reloadData()
             }
         })
-        
         tableView.separatorStyle = .none
         
         navigationControllerAppearance()
     }
     
-    // MARK: Funcs
+    // MARK: - Funcs
     
     override func viewWillAppear(_ animated: Bool) {
         tabBarController?.tabBar.isHidden = true
@@ -105,7 +107,7 @@ class CartPage: UIViewController {
     }
 }
 
-// MARK: Extensions
+// MARK: - Extensions
 
 extension CartPage: UITableViewDelegate, UITableViewDataSource {
     
@@ -149,13 +151,13 @@ extension CartPage: UITableViewDelegate, UITableViewDataSource {
             alert.addAction(cancelAction)
             
             let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { action in
-                self.viewModel.deleteOrder(sepet_yemek_id: Int(cart.sepet_yemek_id!)!, kullanici_adi: cart.kullanici_adi!)
+                self.viewModel.deleteOrder(sepet_yemek_id: Int(cart.sepet_yemek_id!)!,
+                                           kullanici_adi: cart.kullanici_adi!)
             }
             alert.addAction(deleteAction)
             
             self.present(alert, animated: true)
         }
-        
         return UISwipeActionsConfiguration(actions: [deletion])
     }
 }

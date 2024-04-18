@@ -10,6 +10,8 @@ import Kingfisher
 
 class DetailPage: UIViewController {
     
+    // MARK: - Properties
+    
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var labelProductName: UILabel!
@@ -24,6 +26,8 @@ class DetailPage: UIViewController {
             labelCount.text = "\(count)"
         }
     }
+    
+    // MARK: - Initialization
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,11 +46,10 @@ class DetailPage: UIViewController {
         for view in stackView.arrangedSubviews {
             view.widthAnchor.constraint(equalToConstant: 35).isActive = true
         }
-        
         navigationControllerAppearance()
     }
 
-    // MARK: Funcs
+    // MARK: - Funcs
     
     func showToast(orderName:String) {
 

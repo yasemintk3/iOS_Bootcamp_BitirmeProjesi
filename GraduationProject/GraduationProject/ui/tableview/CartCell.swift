@@ -9,6 +9,8 @@ import UIKit
 
 class CartCell: UITableViewCell {
     
+    // MARK: - Properties
+    
     @IBOutlet weak var imageViewOrder: UIImageView!
     @IBOutlet weak var labelName: UILabel!
     @IBOutlet weak var labelPrice: UILabel!
@@ -16,14 +18,14 @@ class CartCell: UITableViewCell {
 
     var count = 0
     
+    // MARK: - Funcs
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
     }
     
     func updateLabel() {

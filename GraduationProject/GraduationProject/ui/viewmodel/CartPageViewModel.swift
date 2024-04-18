@@ -10,13 +10,19 @@ import RxSwift
 
 class CartPageViewModel {
     
+    // MARK: - Properties
+    
     var cartList = BehaviorSubject<[Cart]>(value: [Cart]())
     var cartRepo = Repository()
+    
+    // MARK: - Initialization
     
     init() {
         cartList = cartRepo.cartList
         listCart(kullanici_adi: "ytok")
     }
+    
+    // MARK: - Funcs
     
     func addToCart(yemek_adi:String, yemek_resim_adi:String, yemek_fiyat:Int, yemek_siparis_adet:Int, kullanici_adi:String) {
         cartRepo.addToCart(yemek_adi: yemek_adi,

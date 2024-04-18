@@ -11,8 +11,12 @@ import Alamofire
 
 class Repository {
     
+    // MARK: - Properties
+    
     var menuList = BehaviorSubject<[Menu]>(value: [Menu]())
     var cartList = BehaviorSubject<[Cart]>(value: [Cart]())
+    
+    // MARK: - Funcs
     
     func search(searchText:String) {
         //no webservice

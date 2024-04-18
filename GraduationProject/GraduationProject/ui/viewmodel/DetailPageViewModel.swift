@@ -9,7 +9,11 @@ import Foundation
 
 class DetailPageViewModel {
     
+    // MARK: - Properties
+    
     var cartRepo = Repository()
+    
+    // MARK: - Funcs
     
     func addToCart(yemek_adi:String, yemek_resim_adi:String, yemek_fiyat:Int, yemek_siparis_adet:Int, kullanici_adi:String) {
         cartRepo.addToCart(yemek_adi: yemek_adi,
