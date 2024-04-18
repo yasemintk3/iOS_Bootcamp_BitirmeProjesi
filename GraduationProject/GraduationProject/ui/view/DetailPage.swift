@@ -58,6 +58,16 @@ class DetailPage: UIViewController {
         }
     }
     
+    func showToast() {
+
+        let alertController = UIAlertController(title: nil, message: "There must be at least 1 product", preferredStyle: .alert)
+        self.present(alertController, animated: true, completion: nil)
+
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+            alertController.dismiss(animated: true, completion: nil)
+        }
+    }
+    
     func navigationControllerAppearance() {
         
         navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
@@ -77,13 +87,17 @@ class DetailPage: UIViewController {
     @IBAction func buttonAddToCart(_ sender: Any) {
         
         if let item = itemOnTheMenu {
-            viewModel.addToCart(yemek_adi: item.yemek_adi!,
-                                yemek_resim_adi: item.yemek_resim_adi!,
-                                yemek_fiyat: Int(item.yemek_fiyat!)!,
-                                yemek_siparis_adet: Int(count),
-                                kullanici_adi: "ytok")
-            
-            showToast(orderName: item.yemek_adi!)
+            if count >= 1 {
+                viewModel.addToCart(yemek_adi: item.yemek_adi!,
+                                    yemek_resim_adi: item.yemek_resim_adi!,
+                                    yemek_fiyat: Int(item.yemek_fiyat!)!,
+                                    yemek_siparis_adet: Int(count),
+                                    kullanici_adi: "ytok")
+                
+                showToast(orderName: item.yemek_adi!)
+            } else {
+                showToast()
+            }
         }
     }
 }

@@ -256,15 +256,15 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TOPLAM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VvC-GW-FcK">
-                                <rect key="frame" x="100" y="688" width="78.5" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TOTAL PRICE:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VvC-GW-FcK">
+                                <rect key="frame" x="75" y="688" width="123.5" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TlX-Pl-uqQ">
-                                <rect key="frame" x="255" y="686" width="59" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <rect key="frame" x="250" y="684" width="64" height="32.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <color key="textColor" name="color"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -281,6 +281,7 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="buttonAddToCart:" destination="SdH-jg-IM3" eventType="touchUpInside" id="3xd-6o-Ka0"/>
+                                    <action selector="buttonConfirmOrder:" destination="XRL-Kd-ZKY" eventType="touchUpInside" id="8bN-3k-1vK"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -291,10 +292,10 @@
                             <constraint firstItem="65I-s2-qjT" firstAttribute="centerX" secondItem="lCG-0I-OyJ" secondAttribute="centerX" id="FuF-8m-MTe"/>
                             <constraint firstItem="65I-s2-qjT" firstAttribute="top" secondItem="Kd5-JO-GQT" secondAttribute="top" id="Kre-aM-4tl"/>
                             <constraint firstItem="Kd5-JO-GQT" firstAttribute="trailing" secondItem="TlX-Pl-uqQ" secondAttribute="trailing" constant="100" id="SBx-oN-BRm"/>
-                            <constraint firstItem="VvC-GW-FcK" firstAttribute="leading" secondItem="Kd5-JO-GQT" secondAttribute="leading" constant="100" id="Uef-M6-pkR"/>
+                            <constraint firstItem="VvC-GW-FcK" firstAttribute="leading" secondItem="Kd5-JO-GQT" secondAttribute="leading" constant="75" id="Uef-M6-pkR"/>
                             <constraint firstItem="65I-s2-qjT" firstAttribute="leading" secondItem="Kd5-JO-GQT" secondAttribute="leading" constant="8" id="VFT-ps-eCW"/>
                             <constraint firstItem="Kd5-JO-GQT" firstAttribute="bottom" secondItem="sc8-qP-cic" secondAttribute="bottom" constant="20" id="Xk4-3B-fVO"/>
-                            <constraint firstItem="TlX-Pl-uqQ" firstAttribute="top" secondItem="65I-s2-qjT" secondAttribute="bottom" constant="23" id="baN-pI-Vdp"/>
+                            <constraint firstItem="TlX-Pl-uqQ" firstAttribute="top" secondItem="65I-s2-qjT" secondAttribute="bottom" constant="21" id="baN-pI-Vdp"/>
                             <constraint firstItem="VvC-GW-FcK" firstAttribute="top" secondItem="65I-s2-qjT" secondAttribute="bottom" constant="25" id="g7S-nf-39V"/>
                             <constraint firstItem="sc8-qP-cic" firstAttribute="centerX" secondItem="lCG-0I-OyJ" secondAttribute="centerX" id="sjm-sd-tWu"/>
                             <constraint firstItem="Kd5-JO-GQT" firstAttribute="bottom" secondItem="65I-s2-qjT" secondAttribute="bottom" constant="150" id="sl4-5L-Bu5"/>

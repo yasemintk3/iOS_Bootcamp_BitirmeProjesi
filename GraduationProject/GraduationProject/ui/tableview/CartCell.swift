@@ -13,7 +13,7 @@ class CartCell: UITableViewCell {
     @IBOutlet weak var labelName: UILabel!
     @IBOutlet weak var labelPrice: UILabel!
     @IBOutlet weak var labelCount: UILabel!
-    
+
     var count = 0
     
     override func awakeFromNib() {

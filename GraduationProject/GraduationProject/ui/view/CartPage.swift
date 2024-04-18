@@ -16,6 +16,7 @@ class CartPage: UIViewController {
     var viewModel = CartPageViewModel()
     var orderIds: [String] = []
     var finalPrice = 0
+    var cartCellCount:Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,12 +37,24 @@ class CartPage: UIViewController {
         navigationControllerAppearance()
     }
     
+    // MARK: Funcs
+    
     override func viewWillAppear(_ animated: Bool) {
         tabBarController?.tabBar.isHidden = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         tabBarController?.tabBar.isHidden = false
+    }
+    
+    func showToast() {
+
+        let alertController = UIAlertController(title: nil, message: "Your order has been received", preferredStyle: .alert)
+        self.present(alertController, animated: true, completion: nil)
+
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+            alertController.dismiss(animated: true, completion: nil)
+        }
     }
     
     func navigationControllerAppearance() {
@@ -61,7 +74,7 @@ class CartPage: UIViewController {
     
     func updateTotalPrice() {
         calculateTotalPrice()
-        labelPrice.text = "\(finalPrice)"
+        labelPrice.text = "\(finalPrice) ₺"
     }
     
     func calculateTotalPrice() {
@@ -82,6 +95,12 @@ class CartPage: UIViewController {
     }
     
     @IBAction func buttonDeleteAll(_ sender: Any) {
+        deleteAllOrders()
+    }
+    
+    
+    @IBAction func buttonConfirmOrder(_ sender: Any) {
+        showToast()
         deleteAllOrders()
     }
 }
