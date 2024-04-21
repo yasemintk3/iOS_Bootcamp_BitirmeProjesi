@@ -49,9 +49,9 @@ class CartPage: UIViewController {
         tabBarController?.tabBar.isHidden = false
     }
     
-    func showToast() {
+    func showToast(message: String) {
 
-        let alertController = UIAlertController(title: nil, message: "Your order has been received", preferredStyle: .alert)
+        let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         self.present(alertController, animated: true, completion: nil)
 
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
@@ -100,9 +100,8 @@ class CartPage: UIViewController {
         deleteAllOrders()
     }
     
-    
     @IBAction func buttonConfirmOrder(_ sender: Any) {
-        showToast()
+        showToast(message: "Your order has been received")
         deleteAllOrders()
     }
 }

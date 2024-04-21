@@ -8,6 +8,6 @@
 import Foundation
 
 class MenuResponse: Codable {
-    var yemekler:[Menu]?
-    var success:Int?
+    var yemekler: [Menu]?
+    var success: Int?
 }

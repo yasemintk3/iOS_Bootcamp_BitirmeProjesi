@@ -18,7 +18,7 @@ class Repository {
     
     // MARK: - Funcs
     
-    func search(searchText:String) {
+    func search(searchText: String) {
         //no webservice
     }
     
@@ -40,13 +40,17 @@ class Repository {
         }
     }
     
-    func addToCart(yemek_adi:String, yemek_resim_adi:String, yemek_fiyat:Int, yemek_siparis_adet:Int, kullanici_adi:String) {
+    func addToCart(yemek_adi: String,
+                   yemek_resim_adi: String,
+                   yemek_fiyat: Int,
+                   yemek_siparis_adet: Int,
+                   kullanici_adi: String) {
         
-        let params:Parameters = ["yemek_adi":yemek_adi,
-                                 "yemek_resim_adi":yemek_resim_adi,
-                                 "yemek_fiyat":yemek_fiyat,
-                                 "yemek_siparis_adet":yemek_siparis_adet,
-                                 "kullanici_adi":kullanici_adi]
+        let params:Parameters = ["yemek_adi": yemek_adi,
+                                 "yemek_resim_adi": yemek_resim_adi,
+                                 "yemek_fiyat": yemek_fiyat,
+                                 "yemek_siparis_adet": yemek_siparis_adet,
+                                 "kullanici_adi": kullanici_adi]
         
         AF.request("http://kasimadalan.pe.hu/yemekler/sepeteYemekEkle.php", method: .post, parameters: params).response { response in
             
@@ -61,9 +65,9 @@ class Repository {
         }
     }
     
-    func listCart(kullanici_adi:String) {
+    func listCart(kullanici_adi: String) {
         
-        let params:Parameters = ["kullanici_adi":kullanici_adi]
+        let params:Parameters = ["kullanici_adi": kullanici_adi]
         
         AF.request("http://kasimadalan.pe.hu/yemekler/sepettekiYemekleriGetir.php", method: .post, parameters: params).response { response in
             
@@ -80,10 +84,10 @@ class Repository {
         }
     }
     
-    func deleteOrder(sepet_yemek_id:Int, kullanici_adi:String) {
+    func deleteOrder(sepet_yemek_id: Int, kullanici_adi: String) {
         
-        let params:Parameters = ["sepet_yemek_id":sepet_yemek_id,
-                                 "kullanici_adi":kullanici_adi]
+        let params:Parameters = ["sepet_yemek_id": sepet_yemek_id,
+                                 "kullanici_adi": kullanici_adi]
         
         AF.request("http://kasimadalan.pe.hu/yemekler/sepettenYemekSil.php", method: .post, parameters: params).response { response in
             

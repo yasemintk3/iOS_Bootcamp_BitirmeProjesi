@@ -18,7 +18,7 @@ class DetailPage: UIViewController {
     @IBOutlet weak var labelProductPrice: UILabel!
     @IBOutlet weak var labelCount: UILabel!
     
-    var itemOnTheMenu:Menu?
+    var itemOnTheMenu: Menu?
     var viewModel = DetailPageViewModel()
     
     var count = 0 {
@@ -38,11 +38,9 @@ class DetailPage: UIViewController {
                     self.imageView.kf.setImage(with: url)
                 }
             }
-            
             labelProductName.text = item.yemek_adi
             labelProductPrice.text = "\(item.yemek_fiyat!) ₺"
         }
-        
         for view in stackView.arrangedSubviews {
             view.widthAnchor.constraint(equalToConstant: 35).isActive = true
         }
@@ -51,19 +49,9 @@ class DetailPage: UIViewController {
 
     // MARK: - Funcs
     
-    func showToast(orderName:String) {
+    func showToast(message: String) {
 
-        let alertController = UIAlertController(title: nil, message: "\(orderName) added to cart", preferredStyle: .alert)
-        self.present(alertController, animated: true, completion: nil)
-
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.75) {
-            alertController.dismiss(animated: true, completion: nil)
-        }
-    }
-    
-    func showToast() {
-
-        let alertController = UIAlertController(title: nil, message: "There must be at least 1 product", preferredStyle: .alert)
+        let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         self.present(alertController, animated: true, completion: nil)
 
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
@@ -97,9 +85,9 @@ class DetailPage: UIViewController {
                                     yemek_siparis_adet: Int(count),
                                     kullanici_adi: "ytok")
                 
-                showToast(orderName: item.yemek_adi!)
+                showToast(message: "\(item.yemek_adi!) added to cart")
             } else {
-                showToast()
+                showToast(message: "There must be at least 1 product")
             }
         }
     }

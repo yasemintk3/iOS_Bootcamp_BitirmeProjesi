@@ -45,7 +45,7 @@ class HomePage: UIViewController {
     
     // MARK: - Funcs
     
-    func showToast(orderName:String) {
+    func showToast(orderName: String) {
 
         let alertController = UIAlertController(title: nil, message: "\(orderName) added to cart", preferredStyle: .alert)
         self.present(alertController, animated: true, completion: nil)
@@ -96,7 +96,7 @@ class HomePage: UIViewController {
         tabBarController?.tabBar.scrollEdgeAppearance = appearance
     }
     
-    func tabBarColorDesign(itemAppearance:UITabBarItemAppearance) {
+    func tabBarColorDesign(itemAppearance: UITabBarItemAppearance) {
     
         itemAppearance.selected.iconColor = UIColor(named: "color")
         itemAppearance.selected.badgeBackgroundColor = UIColor.white

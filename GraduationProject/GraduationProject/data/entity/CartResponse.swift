@@ -8,6 +8,6 @@
 import Foundation
 
 class CartResponse: Codable {
-    var sepet_yemekler:[Cart]?
-    var success:Int?
+    var sepet_yemekler: [Cart]?
+    var success: Int?
 }

@@ -8,7 +8,7 @@
 import UIKit
 
 protocol MenuCellProtocol {
-    func clickedAddToCart(indexPath:IndexPath)
+    func clickedAddToCart(indexPath: IndexPath)
 }
 
 class MenuCell: UICollectionViewCell {
@@ -19,8 +19,8 @@ class MenuCell: UICollectionViewCell {
     @IBOutlet weak var labelName: UILabel!
     @IBOutlet weak var labelPrice: UILabel!
     
-    var menuCellProtocol:MenuCellProtocol?
-    var indexPath:IndexPath?
+    var menuCellProtocol: MenuCellProtocol?
+    var indexPath: IndexPath?
     
     // MARK: - Funcs
     
