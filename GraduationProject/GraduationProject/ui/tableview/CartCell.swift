@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol CartCellProtocol {
+    func clickedCount(indexPath: IndexPath, count: Int)
+}
+
 class CartCell: UITableViewCell {
     
     // MARK: - Properties
@@ -15,6 +19,9 @@ class CartCell: UITableViewCell {
     @IBOutlet weak var labelName: UILabel!
     @IBOutlet weak var labelPrice: UILabel!
     @IBOutlet weak var labelCount: UILabel!
+    
+    var cartCellProtocol: CartCellProtocol?
+    var indexPath: IndexPath?
 
     var count = 0
     
@@ -28,16 +35,12 @@ class CartCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func updateLabel() {
-        labelCount.text = "\(count)"
-    }
-    
     @IBAction func buttonDecrease(_ sender: Any) {
         count = Int(labelCount.text!)!
         
         if count > 1 {
             count -= 1
-            updateLabel()
+            cartCellProtocol?.clickedCount(indexPath: indexPath!, count: count)
         }
     }
     
@@ -45,6 +48,6 @@ class CartCell: UITableViewCell {
         count = Int(labelCount.text!)!
         
         count += 1
-        updateLabel()
+        cartCellProtocol?.clickedCount(indexPath: indexPath!, count: count)
     }
 }

@@ -132,6 +132,9 @@ extension CartPage: UITableViewDelegate, UITableViewDataSource {
         
         orderIds.append(cart.sepet_yemek_id!)
         
+        cell.cartCellProtocol = self
+        cell.indexPath = indexPath
+        
         cell.layer.borderWidth = 3
         cell.layer.borderColor = UIColor.systemGray6.cgColor
         
@@ -158,5 +161,21 @@ extension CartPage: UITableViewDelegate, UITableViewDataSource {
             self.present(alert, animated: true)
         }
         return UISwipeActionsConfiguration(actions: [deletion])
+    }
+}
+
+extension CartPage: CartCellProtocol {
+    
+    func clickedCount(indexPath: IndexPath, count: Int) {
+        
+        let cart = cartList[indexPath.row]
+        
+        viewModel.deleteOrder(sepet_yemek_id: Int(cart.sepet_yemek_id!)!, kullanici_adi: "ytok")
+        
+        viewModel.addToCart(yemek_adi: cart.yemek_adi!,
+                            yemek_resim_adi: cart.yemek_resim_adi!,
+                            yemek_fiyat: Int(cart.yemek_fiyat!)!,
+                            yemek_siparis_adet: count,
+                            kullanici_adi: "ytok")
     }
 }
